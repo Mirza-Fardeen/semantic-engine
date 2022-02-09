@@ -1,0 +1,187 @@
+# Config for server port
+server:
+  port: 8002
+  tomcat.connection-timeout: 10000
+  servlet.session.timeout: 10000
+  connection-timeout: 10000
+
+server.error.include-message: always
+
+app:
+  threadCapSize: 30
+  queuedTaskCapSize: 300
+
+delayTime:
+  getOfferingDelaySecond: 1
+
+#Config for API documentation
+api:
+  common:
+    version: 1.0.0
+    title: i3Market Semantic Engine
+    description: Details of the API for the Semantic Engine of the i3Market.
+    termsOfService: i3-Market Service
+    license: i3-Market License
+    licenseUrl: https://www.i3-market.eu/
+    externalDocDesc: https://www.i3-market.eu/
+    externalDocUrl: https://www.i3-market.eu/
+    contact:
+      name: Chi H Le
+      url:
+      email: chi-hung.le@insight-centre.org
+
+  responseCodes:
+    ok.description: OK
+    badRequest.description: Bad Request, invalid format of the request. See response message for more information
+    notFound.description: Not found, the specified input does not exist
+    unprocessableEntity.description: Unprocessable entity. See response message for more information
+    # Define response for each API here
+    saveProviderBadRequest.description: Failed to save provider information
+    updateOfferingBadRequest.description: Failed to update data offering
+
+
+  i3market-semantic-engine:
+    save-data-provider:
+      description: Register provider info
+      notes: |
+        # Register provider info
+
+        # Example:
+            {
+              "providerId": "uiot-provider",
+              "name": "",
+              "description": "This is UIoT data Provider",
+              "organization": [
+                {
+                  "organizationId": "NUIGP1",
+                  "name": "National University of Ireland Galway",
+                  "description": "Education Organisation",
+                  "address": "University Road, Galway",
+                  "contactPoint": "chihung.le@nuigalway.ie"
+                }
+              ]
+            }
+
+        # Expected responses
+
+            If given information is correct:
+              200 - Ok, data provider info has been saved into the database sucessfully.
+
+            If given information is incorrect/dublicated/invalid input
+              400 - Bad Request** error will be returned
+
+            System down, database has an issue...
+              422 - Unprocessable Entity** error will be returned. It would be an issue with database or system down.
+
+    update-offering:
+      description: Update an existing data offering
+      notes: |
+        # Update an existing data offering
+
+        # Expected responses
+
+            If given information is correct:
+              200 - Ok, data offering info has been updated/saved into the database sucessfully.
+
+            If given information is incorrect/dublicated/invalid input
+              400 - Bad Request error will be returned
+
+            System down, database has an issue...
+              422 - Unprocessable Entity** error will be returned. It would be an issue with database or system down.
+
+    get-total-offering:
+      description: Get total offering by category and providerId
+      notes: |
+        # Get total offering by category and providerId
+            This total offering will be retrieved from internal database and distributed databases from other nodes
+
+        # Example
+            1. Give a category you want to display
+                e.g. category = wellbeing
+            2. Give a provider fro that category
+               e.g. providerId = provider-webri
+               Give providerId = all , if you want to get total offering of a category by all providers. Capital letter does not matter
+
+        # Expected responses
+
+            If given information is correct:
+              200 - Ok, data offering info has been updated/saved into the database sucessfully.
+
+            If given information is incorrect/dublicated/invalid input
+              400 - Bad Request error will be returned
+
+            System down, database has an issue...
+              422 - Unprocessable Entity** error will be returned. It would be an issue with database or system down.
+
+#Config for spring-doc endpoint
+springdoc:
+  swagger-ui.path: /swagger-ui.html
+  api-docs.path: /openapi/v3/api-docs
+  pathsToMatch: /**
+  packagesToScan: ie.nuig
+
+
+#logging:
+#  level:
+#    ROOT: DEBUG
+#    ie.nuig.i3market: DEBUG
+
+# Service health check with prometheus and actuator
+management:
+  endpoints.web.exposure.include: "*"
+  endpoint:
+    health.show-details: always
+    metrics.enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+#Service name
+spring:
+  application:
+    name: i3MARKET-SEMANTIC-ENGINE
+
+# In the future, if data is accessed via API between distrubuted nodes,
+# the below databasePublicIp can be removed.
+databasePublicIp:
+  ipVal: http://95.211.3.244 # Change this host into your database host
+  port: 8890
+
+# Config for database
+application:
+  virtuosoProperties:
+    #     the following "virtuoso" is the container name of the virtuoso endpoint deployed together with SEED using composed file.
+    url: http://virtuoso:8890
+#    url: http://localhost:8890
+#    url: http://95.211.3.249:8891
+#    url: http://localhost:8890
+    #    url: http://77.75.244.136:8890
+    query_interface: /sparql
+    update_interface: /sparql-auth
+    endpoint_port: 8890
+    scheme_authority: http://
+    username: dba
+    password: myDbaPassword
+    #    password: dba
+    graph: http://i3market/data
+    categories_graph: http://i3market/offerings/categories
+  # docker run --name sm-virtuoso1 -p 8890:8890 -e DBA_PASSWORD=myDbaPassword -e SPARQL_UPDATE=true -e DEFAULT_GRAPH=http://i3market/data -d tenforce/virtuoso
+
+  #Distribured storage endpoints
+  DistributedStorageIntegration:
+#    http://95.211.3.244:7500/docs/#/Semantic%20search%20engine%20registration/post_search_engine_index
+    search_engines_GET: http://95.211.3.244:7500/search_engine_index
+    search_engines_POST: http://95.211.3.244:7500/search_engine_index
+    searchCategories_GET: http://95.211.3.244:7500/data_categories
+
+  #Notification manager
+  NotificationMangerIntegration:
+    notificationService_POST: http://95.211.3.244:10010/api/v1/notification/service
+
+---
+spring.profiles: docker
+
+server.port: 8002
+
+# Testing

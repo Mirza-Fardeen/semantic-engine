@@ -1,0 +1,129 @@
+{
+  "provider": "uiot",
+  "marketId": "UIOT-M",
+  "owner": "Owner webri node 249",
+  "dataOfferingTitle": "Offsore Wind Turbine",
+  "dataOfferingDescription": "This is offshore wind turbine data",
+  "category": "wellbeing",
+  "status": "activated",
+  "dataOfferingExpirationTime": "1month",
+  "contractParameters": [
+    {
+      "interestOfProvider": "Chi",
+      "interestDescription": "Test -  Modified",
+      "hasGoverningJurisdiction": "Test data",
+      "purpose": "Test data",
+      "purposeDescription": "Test data",
+      "hasIntendedUse": [
+        {
+          "processData": "true OR false",
+          "shareDataWithThirdParty": "true OR false",
+          "editData": "true OR false"
+        }
+      ],
+      "hasLicenseGrant": [
+        {
+          "copyData": "true OR false",
+          "transferable": "true OR false",
+          "exclusiveness": "true OR false",
+          "revocable": "true OR false"
+        }
+      ]
+    }
+  ],
+  "hasPricingModel": [
+    {
+      "pricingModelName": "Test data1",
+      "basicPrice": "100EUR",
+      "currency": "Test data",
+      "hasPaymentOnSubscription": [
+        {
+          "paymentOnSubscriptionName": "Test data",
+          "paymentType": "Test data",
+          "timeDuration": "Test data",
+          "description": "Test data",
+          "repeat": "DAILY",
+          "hasSubscriptionPrice": "Test data"
+        }
+      ],
+      "hasPaymentOnApi": [
+        {
+          "paymentOnApiName": "Test data",
+          "description": "Test data",
+          "numberOfObject": "Test data",
+          "hasApiPrice": "Test data"
+        }
+      ],
+      "hasPaymentOnUnit": [
+        {
+          "paymentOnUnitName": "Test data",
+          "description": "Test data",
+          "dataUnit": "Test data",
+          "hasUnitPrice": "Test data"
+        }
+      ],
+      "hasPaymentOnSize": [
+        {
+          "paymentOnSizeName": "Test data",
+          "description": "Test data",
+          "dataSize": "Test data",
+          "hasSizePrice": "Test data"
+        }
+      ],
+      "hasFreePrice": [
+        {
+          "hasPriceFree": "FREE"
+        }
+      ]
+    }
+  ],
+  "hasDataset": [
+    {
+      "title": "Test data",
+      "keyword": "Test data",
+      "dataset": "Test data",
+      "description": "Test data",
+      "issued": "2021-10-04T14:20:23.162Z",
+      "modified": "2021-10-04T14:20:23.162Z",
+      "temporal": "Test data",
+      "language": "Test data",
+      "spatial": "Test data",
+      "accrualPeriodicity": "Test data",
+      "temporalResolution": "Test data",
+      "theme": [
+        "Test data"
+      ],
+      "distribution": [
+        {
+          "title": "Test data",
+          "description": "Test data",
+          "license": "Test data",
+		  "accessRights": "private",
+		  "downloadType": "JSON",
+          "conformsTo": "Test data",
+          "mediaType": "Test data",
+          "packageFormat": "Test data",
+          "accessService": [
+            {
+              "conformsTo": "Test data",
+              "endpointDescription": "Test data",
+              "endpointURL": "Test data",
+              "servesDataset": "Test data",
+              "serviceSpecs": "Test data"
+            }
+          ]
+        }
+      ],
+      "datasetInformation": [
+        {
+          "measurementType": "Test data",
+          "measurementChannelType": "Test data",
+          "sensorId": "Test data",
+          "deviceId": "Test data",
+          "cppType": "Test data",
+          "sensorType": "Test data"
+        }
+      ]
+    }
+  ]
+}
