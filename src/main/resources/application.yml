@@ -152,8 +152,8 @@ databasePublicIp:
 application:
   virtuosoProperties:
     #     the following "virtuoso" is the container name of the virtuoso endpoint deployed together with SEED using composed file.
-    url: http://virtuoso:8890
-#    url: http://localhost:8890
+    #url: http://virtuoso:8890
+    url: http://localhost:8890
 #    url: http://95.211.3.249:8891
 #    url: http://localhost:8890
     #    url: http://77.75.244.136:8890

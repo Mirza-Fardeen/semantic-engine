@@ -89,6 +89,7 @@ public class General<T> {
 
         SelectQueries selectQueries = new SelectQueries(query);
 
+
         try {
 
             annotatedField.setAccessible(true);

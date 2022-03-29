@@ -6,6 +6,7 @@ import ie.nuig.i3market.semantic.engine.domain.Organization;
 import ie.nuig.i3market.semantic.engine.domain.entities.lists.CategoriesList;
 import ie.nuig.i3market.semantic.engine.domain.entities.lists.OfferingsList;
 import ie.nuig.i3market.semantic.engine.domain.entities.lists.ProvidersList;
+import ie.nuig.i3market.semantic.engine.domain.optimise.Offering;
 import ie.nuig.i3market.semantic.engine.domain.optimise.OfferingContracts;
 import ie.nuig.i3market.semantic.engine.dto.*;
 import ie.nuig.i3market.semantic.engine.exceptions.*;
@@ -89,6 +90,8 @@ public class DataOfferingService {
         offeringRepository.saveTemplate(body);
     }
 
+
+
     //This is to save an offering
     public Flux<DataOfferingId> saveDataOffering(DataOfferingDto body) {
 
@@ -120,6 +123,7 @@ public class DataOfferingService {
 
 
     //This is to update an offering
+
     public Mono<Void> updateOffering(DataOffering body) throws BindingException {
 
         List<ExtDataOfferingDto> offerings = offeringRepository.offeringAggregateByOfferingId(body.getDataOfferingId(),
