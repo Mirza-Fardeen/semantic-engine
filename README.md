@@ -117,19 +117,7 @@ A sample of a data offering can be found [here](https://gitlab.com/i3-market/cod
 >```DELETE/api/registration/delete-offering/{offeringId}```
 
 
-## 4. Access to the semantic engine API endpoint from the Backplane and the SDK-RI
 
-- If you would like to get accessed to the semantic engine through the Backplane, please refer to the Backplane specification defined in this developer portal.
-
-- Similarly, you would like to get accessed to the semantic engine through the SDK-RI, please refer to the SDK-RI specification defined in this developer portal.
-
-## 5. Contact us if you have any issue with the semantic engine
-
-Achille: <achille.zappa@insight-centre.org>
-
-or
-
-Chi : <chi-hung.le@insight-centre.org>
 
 ## 6. License
 
