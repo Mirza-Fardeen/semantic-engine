@@ -1,7 +1,8 @@
 # i3-Market Semantics Engine
 
 ## 1. Introduction
-The semantic engine is a data microservice, which can interact with other services of the i3-Market for data offering registration. The semantic engine also provides necessary information such as contract parameters, pricing models, etc for other services and users. The repository of the semantic engine on the i3-Market gitlab can be found [here](https://gitlab.com/i3-market/code/wp4/semantic-engine) . The Swagger reference of the semantic engine itself can be found [here](http://95.211.3.249:8082/swagger-ui.html)
+The semantic engine is a data microservice, which can interact with other services of the i3-Market for data offering registration. The semantic engine also provides necessary information such as contract parameters, pricing models, etc for other services and users. The repository of the semantic engine on the i3-Market gitlab can be found [here](https://gitlab.com/i3-market/code/wp4/semantic-engine) . NOTE : _ The author of the code was Qaiser M originally and i worked as code maintainer
+in the project itself.
 
 ## 2. Objectives
 
