@@ -8,21 +8,12 @@ The semantic engine is a data microservice, which can interact with other servic
 The semantic engine provides necessary API endpoints in relation to the data offering purpose of the i3Market. Details of each API endpoint can be found in the following sections.
 
 
-## 3. How to build the semantic engine docker images and containers
+## 3. How to build the docker images and containers
 
-The Semantic engine 's repository is stored in Gitlab [click here](https://gitlab.com/i3-market/code/wp4/semantic-engine) . The semantic engine is developed by Java Spring Boot with SparQL query using Virtuoso Database tech stack. In order to run semantic engine in Docker, following steps can be applied:
 
-a) Install your Docker engine.
 
-b) Create docker image of the semantic engine. Before creating a docker image, it is required to build a ".jar" file of the semantic engine at first.
 
-c) Try the following to create your docker image and run a container for the semantic engine
-
-```
-docker build --no-cache -t registry.gitlab.com/i3-market/code/wp4/semantic-engine:latest .
-```
-
-d) Get a virtuoso database from Docker hub in [here](https://hub.docker.com/r/tenforce/virtuoso/) . Try the following to create a Virtuoso data base container to allow the semantic engine to connect with.
+a) Get a virtuoso database from Docker hub in [here](https://hub.docker.com/r/tenforce/virtuoso/) . Try the following to create a Virtuoso data base container to allow the semantic engine to connect with.
 
 ```
  docker run --name virtuoso -p 8890:8890 --restart=always --network=insight_chi-hung.le-network -e DBA_PASSWORD=myDbaPassword -e SPARQL_UPDATE=true -e DEFAULT_GRAPH=http://i3market/data -v /virtuoso_db/db:/data -d tenforce/virtuoso:latest
